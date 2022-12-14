@@ -18,7 +18,6 @@ function getFormData() {
       [message.name]: messageValue,
     };
     localStorage.setItem('feedback-form-state', JSON.stringify(savedData));
-    console.log('ЗАПИС' + localStorage.getItem('feedback-form-state'));
   }
 }
 // Clear localStorage and log data in console
