@@ -18,6 +18,7 @@ function getFormData() {
       [message.name]: messageValue,
     };
     localStorage.setItem('feedback-form-state', JSON.stringify(savedData));
+    console.log('ЗАПИС' + localStorage.getItem('feedback-form-state'));
   }
 }
 // Clear localStorage and log data in console
@@ -25,13 +26,13 @@ function clearStorage(event) {
   event.preventDefault();
   try {
     const savedData = JSON.parse(localStorage.getItem('feedback-form-state'));
+    if (savedData) console.log(savedData);
     formRef.reset();
-    console.log(savedData);
   } catch (error) {
     console.log('Can`t parce this data: ' + error.name); // "SyntaxError"
   }
 
-  localStorage.clear();
+  localStorage.removeItem('feedback-form-state');
 }
 
 function initForm() {
